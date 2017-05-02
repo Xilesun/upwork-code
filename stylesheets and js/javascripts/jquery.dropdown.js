@@ -12,6 +12,8 @@
         factory(jQuery);
     }
 }(function($) {
+  var width = $(window).width();
+  var event = width > 768 ? "mouseover" : "click";
 
   var methods = {
     options : {
@@ -126,7 +128,7 @@
         //---------------------------------------//
 
         // On click, set the clicked one as selected
-        $ul.on("click", "li:not(.dropdownjs-add)", function(e) {
+        $ul.on(event, "li:not(.dropdownjs-add)", function(e) {
           methods._select($dropdown, $(this));
           // trigger change event, if declared on the original selector
           $select.change();
